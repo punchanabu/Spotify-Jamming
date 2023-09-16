@@ -12,22 +12,26 @@ const demo = [
 export default function App() {
     const [playlistName,setPlaylistName] = useState("");
     const [playlistTrack,setPlaylistTrack] = useState([]);
-    const addPlaylist = (track) => {
+    const addTrack = (track) => {
         if (!playlistTrack.some(t => t.name === track.name)) {
             setPlaylistTrack([...playlistTrack,track]);
         }
+    }
+    const deleteTrack = (track) => {
+        setPlaylistTrack(playlistTrack.filter(t => t.name != track.name));
     }
     return (
         <div>
             <h1>Spotify Jamming</h1>
             <div>
                 <SearchBar/>
-                <SearchResult result = {demo} addPlaylist = {addPlaylist}/>
+                <SearchResult result = {demo} addTrack = {addTrack}/>
             </div>
             <div>
                 <PlayList 
                     name = {playlistName}
-                    trackList = {playlistTrack}/>
+                    trackList = {playlistTrack}
+                    deleteTrack = {deleteTrack}/>
             </div>
         </div>
     )

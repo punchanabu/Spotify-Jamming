@@ -1,10 +1,10 @@
 import React from "react";
 import TrackList from "../TrackList/TrackList";
 
-export default function SearchResult({result,addPlaylist}) {
+export default function SearchResult({result,addTrack}) {
     return (
         <TrackList 
             songs = {result} 
-            addPlaylist = {addPlaylist}/>
+            addTrack = {addTrack}/>
     )
 }
