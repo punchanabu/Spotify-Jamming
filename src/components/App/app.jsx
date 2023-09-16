@@ -16,9 +16,12 @@ export default function App() {
         if (!playlistTrack.some(t => t.name === track.name)) {
             setPlaylistTrack([...playlistTrack,track]);
         }
-    }
+    };
     const deleteTrack = (track) => {
-        setPlaylistTrack(playlistTrack.filter(t => t.name != track.name));
+        setPlaylistTrack(playlistTrack.filter(t => t.name !== track.name));
+    };
+    const updateName = (name) => {
+        setPlaylistName(name);
     }
     return (
         <div>
@@ -30,6 +33,7 @@ export default function App() {
             <div>
                 <PlayList 
                     name = {playlistName}
+                    updateName = {updateName}
                     trackList = {playlistTrack}
                     deleteTrack = {deleteTrack}/>
             </div>
