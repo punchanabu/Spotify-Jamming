@@ -2,17 +2,32 @@ import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResult from "../SearchResult/SearchResult";
 import PlayList from "../PlayList/PlayList";
-
+import { useState } from "react";
+const demo = [
+    {name: "Johhny", artist: "Ben"},
+    {name: "Love", artist: "DOM"},
+    {name: "Big", artist: "Small"},
+    {name: "Eddy", artist: "pun"}
+]
 export default function App() {
+    const [playlistName,setPlaylistName] = useState("");
+    const [playlistTrack,setPlaylistTrack] = useState([]);
+    const addPlaylist = (track) => {
+        if (!playlistTrack.some(t => t.name === track.name)) {
+            setPlaylistTrack([...playlistTrack,track]);
+        }
+    }
     return (
         <div>
             <h1>Spotify Jamming</h1>
             <div>
                 <SearchBar/>
-                <SearchResult/>
+                <SearchResult result = {demo} addPlaylist = {addPlaylist}/>
             </div>
             <div>
-                <PlayList/>
+                <PlayList 
+                    name = {playlistName}
+                    trackList = {playlistTrack}/>
             </div>
         </div>
     )

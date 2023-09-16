@@ -2,6 +2,9 @@ import React from "react";
 
 export default function SearchBar() {
     return (
-        <input type = "text"></input>
+        <div>
+            <input type = "text"></input>
+            <button>Search</button>
+        </div>
     )
 }

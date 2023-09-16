@@ -1,9 +1,9 @@
 import React from "react";
 import Track from "../Track/Track";
-export default function TrackList() {
+export default function TrackList({songs,addPlaylist}) {
     return (
         <div>
-            <Track/>
+            {songs && songs.map(song => <Track song = {song} addPlaylist = {addPlaylist}/>)}
         </div>
     )
 }
