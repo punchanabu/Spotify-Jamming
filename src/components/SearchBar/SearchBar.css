@@ -1,0 +1,42 @@
+.search-bar {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 20px;
+    font-family: 'Roboto', sans-serif;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/2048px-Magnifying_glass_icon.svg.png");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    padding-right: 40px; 
+    transition: all 0.5s;
+    box-shadow: 0px 5px 5px #AFAFAF;
+}
+.search-bar:focus {
+    border: 3px solid lightblue;
+    border-color: #4285f4; /* Changes the border color when focused */
+    box-shadow: 0 0 8px rgba(66, 133, 244, 0.2); /* Adds a shadow effect when focused */
+}
+
+.button {
+    width: 150px;
+    height: 40px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid #EFEFEF;
+    box-shadow: 0px 5px 5px #AFAFAF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+.button:hover {
+    transform: translateY(4px);
+    border: 2px solid black;
+    transition: all 0.5s;
+}
+.flex-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}

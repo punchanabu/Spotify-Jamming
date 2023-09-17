@@ -4,7 +4,7 @@ import SearchResult from "../SearchResult/SearchResult";
 import PlayList from "../PlayList/PlayList";
 import Spotify from "../../utils/Spotify";
 import { useState ,useCallback} from "react";
-
+import app from "./app.css"
 
 export default function App() {
     const [searchResult,setSearchResult] = useState([
@@ -33,6 +33,7 @@ export default function App() {
     const savePlaylistToSpotify = () => {
         console.log(TrackUris);
         Spotify.savePlaylist(playlistName,TrackUris);
+        
     }
     const resetPlaylist = () => {
         setPlaylistName("");
@@ -43,22 +44,28 @@ export default function App() {
         resetPlaylist();
     }
     return (
-        <div>
-            <h1>Spotify Jamming</h1>
-            <div>
-                <SearchBar
-                    handleSearch={handleSearch}
-                    />
-                <SearchResult result = {searchResult} addTrack = {addTrack}/>
+        <div className="bg-grey">
+            <div className="flex">
+                <i class="fa-solid fa-chart-simple icon"></i>
+                <h1 className = "title">Jamming</h1>
             </div>
-            <div>
-                <PlayList 
-                    name = {playlistName}
-                    updateName = {updateName}
-                    trackList = {playlistTrack}
-                    deleteTrack = {deleteTrack}
-                    handleSave = {handleSaveToSpotify}/>
-            </div>
+            <p className="description">tools for crafting the perfect Spotify playlist.</p>
+            <section className="flex-2">
+                <div className = "block-1">
+                    <SearchBar
+                        handleSearch={handleSearch}
+                        />
+                    <SearchResult result = {searchResult} addTrack = {addTrack}/>
+                </div>
+                <div className="block-2">
+                    <PlayList 
+                        name = {playlistName}
+                        updateName = {updateName}
+                        trackList = {playlistTrack}
+                        deleteTrack = {deleteTrack}
+                        handleSave = {handleSaveToSpotify}/>
+                </div>
+            </section>
         </div>
     )
 }

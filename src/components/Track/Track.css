@@ -1,0 +1,54 @@
+.track {
+    border: 1px solid black;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
+    padding: 20px;
+    box-shadow: 0px 2px 2px gray;
+    transition: all 0.8s;
+}
+.track:hover {
+    box-shadow: 0px 0px 0px gray;
+}
+
+
+.detail {
+    margin-top: 5px;
+    transition: all 0.8s; /* This will ensure the details appear slowly */
+}
+
+.add-button {
+    margin-top: 10px;
+    border: 1px solid black; /* Removed duplicate border property */
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px gray;
+    padding: 5px 10px;
+    transition: all 0.4s;
+    background-color: white;
+}
+.add-button:hover {
+    border-radius: 2px;
+    padding: 15px;
+    background-color: #CEFF8B;
+}
+.add-button:active {
+    transform: translateY(5px);
+}
+
+.del-button {
+    margin-top: 10px;
+    border: 1px solid black; /* Removed duplicate border property */
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px gray;
+    padding: 5px 10px;
+    transition: all 0.4s;
+    background-color: white;
+}
+.del-button:hover {
+    background-color: #FFA18B;
+    padding: 5px 20px 5px 20px;
+}
+
+.icon-2 {
+    margin-right: 3px;
+}
