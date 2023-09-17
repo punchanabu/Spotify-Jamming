@@ -2,17 +2,22 @@ import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResult from "../SearchResult/SearchResult";
 import PlayList from "../PlayList/PlayList";
-import { useState } from "react";
-const demo = [
-    {name: "Queen Songs", artist: "Judah & the Lion", uri: "spotify:track:27fpPlAMJc9IM6adpi46Nc"},
-    {name: "Quarter Life Crisis", artist: "Judah & the Lion", uri: "spotify:track:6yfCm7LVFXxRMItHAlMySC"},
-    {name: "Why Did You Run?", artist: "Judah & the Lion", uri: "spotify:track:4ascbpJ8eelgihjwUnmgwY"},
-]
+import Spotify from "../../utils/Spotify";
+import { useState ,useCallback} from "react";
+
 
 export default function App() {
+    const [searchResult,setSearchResult] = useState([
+    ]);
     const [playlistName,setPlaylistName] = useState("");
     const [playlistTrack,setPlaylistTrack] = useState([]);
     const TrackUris = playlistTrack.map(track => track.uri);
+    const handleSearch = useCallback((term) => {
+        Spotify.search(term).then(response => {
+            console.log("API response: ", response);  // Log the API response
+            setSearchResult(response);
+        });
+    }, []);  
     const addTrack = (track) => {
         if (!playlistTrack.some(t => t.name === track.name)) {
             setPlaylistTrack([...playlistTrack,track]);
@@ -39,8 +44,10 @@ export default function App() {
         <div>
             <h1>Spotify Jamming</h1>
             <div>
-                <SearchBar/>
-                <SearchResult result = {demo} addTrack = {addTrack}/>
+                <SearchBar
+                    handleSearch={handleSearch}
+                    />
+                <SearchResult result = {searchResult} addTrack = {addTrack}/>
             </div>
             <div>
                 <PlayList 
