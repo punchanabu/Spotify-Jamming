@@ -55,15 +55,3 @@ These instructions will get you a copy of the project up and running on your loc
 - [React](https://reactjs.org/) - The web framework used
 - [Spotify API](https://developer.spotify.com/documentation/web-api/) - Used to interact with Spotify's music library and user accounts
 
-## Contributing
-
-If you wish to contribute to this project, feel free to fork the repository, create a new branch for your feature or bugfix, and open a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Acknowledgments
-
-- Spotify API for providing a robust API to interact with their platform
-- [Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app) for simplifying the React.js setup process
