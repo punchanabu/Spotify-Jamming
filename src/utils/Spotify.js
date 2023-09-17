@@ -48,8 +48,54 @@ const Spotify = {
             console.log(error);
         }
 
-    }
-    
+    },
+    async savePlaylist(name,trackUris) {
+        if (!name || !trackUris) {
+            return;
+        }
+        try {
+            const accessToken = Spotify.getAccessToken();
+            let userId,playlistId;
+            // get user id
+            const userIdResponse = await fetch('https://api.spotify.com/v1/me', {
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`
+                }
+            })
+            const data = await userIdResponse.json();
+            userId = data.id;
+            // create playlist
+            const createPlayList = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({name:name})
+            })
+            const playlistData = await createPlayList.json();
+            playlistId = playlistData.id;
+            // add track
+            const addTrackResponse = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({uris: trackUris})
+            });
+            // check error 
+            if (addTrackResponse.ok) {
+                return 'Playlist Create Successfully'
+            } else {
+                throw new Error('Failed to add track to playlist')
+            } 
+        } catch(error) {
+            console.error('Error saving playlist', error);
+            throw error;
+        }
+    }   
+
 };
 
 export default Spotify

@@ -18,6 +18,7 @@ export default function App() {
             setSearchResult(response);
         });
     }, []);  
+    
     const addTrack = (track) => {
         if (!playlistTrack.some(t => t.name === track.name)) {
             setPlaylistTrack([...playlistTrack,track]);
@@ -31,6 +32,7 @@ export default function App() {
     }
     const savePlaylistToSpotify = () => {
         console.log(TrackUris);
+        Spotify.savePlaylist(playlistName,TrackUris);
     }
     const resetPlaylist = () => {
         setPlaylistName("");
