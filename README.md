@@ -4,44 +4,6 @@ Spotify Jamming is a web application that allows users to search the Spotify lib
 
 Try it here: https://spotify-jamming.vercel.app/
 
-## Features
-
-- **Search Spotify Tracks** - Users can search for tracks available on Spotify.
-- **Create Custom Playlists** - Users can create their own playlists by adding tracks from the search results.
-- **Save Playlists to Spotify Account** - Users can save their custom playlists to their Spotify account.
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
-### Prerequisites
-
-- Node.js
-- A Spotify account
-
-### Installation
-
-1. Clone the repository:
-    ```
-    git clone https://github.com/your-github-username/spotify-jamming.git
-    ```
-
-2. Navigate to the project directory:
-    ```
-    cd spotify-jamming
-    ```
-
-3. Install the dependencies:
-    ```
-    npm install
-    ```
-
-4. Start the development server:
-    ```
-    npm start
-    ```
-
-5. Open your web browser and navigate to [http://localhost:3000](http://localhost:3000) to see the application running.
 
 ### Usage
 
